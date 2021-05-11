@@ -2,7 +2,7 @@ package ejercicios;
 
 import java.util.Scanner;
 
-import ejercicios.recursos.figuras.Triangulo;
+import recursos.figuras.Triangulo;
 
 /**
  * 8.1. Realiza las siguientes operaciones: • Crea una clase llamada Figura2D

@@ -2,7 +2,7 @@ package ejercicios;
 
 import java.util.Scanner;
 
-import ejercicios.recursos.figuras.Triangulo_v2;
+import recursos.figuras.Triangulo_v2;
 
 /**
  * 8.2. Copia las clases anteriores como una nueva versión de las mismas (añade

@@ -1,4 +1,4 @@
-package ejercicios.recursos.figuras;
+package recursos.figuras;
 
 /**
  * • Define una clase llamada Triángulo que es hija de Figura2D y añádele una

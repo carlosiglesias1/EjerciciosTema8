@@ -1,4 +1,4 @@
-package ejercicios.recursos.figuras;
+package recursos.figuras;
 
 /**
  * • Crea una clase llamada Figura2D con atributos numéricos con decimales y

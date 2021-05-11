@@ -1,10 +1,10 @@
-package ejercicios.recursos.figuras;
+package recursos.figuras;
 
-public class Figura2D_v2 {
+public class Figura2D_v5 {
     private float ancho;
     private float alto;
 
-    public Figura2D_v2 (float alto, float ancho){
+    public Figura2D_v5 (float alto, float ancho){
         this.alto = alto;
         this.ancho = ancho;
     }

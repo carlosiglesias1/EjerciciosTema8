@@ -1,5 +1,9 @@
 package ejercicios;
 
+import java.util.Scanner;
+
+import recursos.figuras.Triangulo_v5;
+
 /**
  * 8.5. Copia las clases anteriores como una nueva versión de las mismas (añade
  * sufijo _v5) y realiza los siguientes cambios: • Añade un constructor más a la
@@ -17,6 +21,23 @@ package ejercicios;
 
 public class Ejercicio5 {
     public static void main(String[] args) {
-        System.out.println("hello");
+        Scanner teclado = new Scanner(System.in);
+        Triangulo_v5 triangulo_v5;
+        float base = 0f;
+        float altura = 0f;
+
+        System.out.println("Introduce una base, una altura y un estilo para el triángulo");
+        try {
+            base = Float.parseFloat(teclado.nextLine());
+            altura = Float.parseFloat(teclado.nextLine());
+            triangulo_v5 = new Triangulo_v5(base, altura, teclado.nextLine());
+        } catch (Exception e) {
+            System.out.println(e);
+            triangulo_v5 = new Triangulo_v5();
+        }
+        System.out.println(triangulo_v5.verDim());
+        System.out.println(triangulo_v5.verEstilo());
+        System.out.println(triangulo_v5.area());
+        teclado.close();
     }
 }

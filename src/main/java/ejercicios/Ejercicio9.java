@@ -1,5 +1,9 @@
 package ejercicios;
 
+import java.util.Scanner;
+
+import recursos.CuentaPlazo;
+
 /**
  * 8.9. Copia la clase _CuentaCorriente que te proporcionará el profesor con un
  * nombre nuevo, por ejemplo, CuentaCorriente y realiza las siguientes
@@ -15,5 +19,10 @@ package ejercicios;
  */
 
 public class Ejercicio9 {
-    
+    public static void main(String[] args) {
+        CuentaPlazo cPlazo;
+        Scanner teclado = new Scanner (System.in);
+        
+        teclado.close();
+    }
 }

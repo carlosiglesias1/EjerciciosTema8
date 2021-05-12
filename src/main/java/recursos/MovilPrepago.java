@@ -55,6 +55,7 @@ public float consultarSaldo () {
       return saldo;
 }
 
+@Override
 public String toString (){
       return String.format("Número de móvil: %d%nSaldo: %.2f", this.numeroMovil, this.saldo);
 }

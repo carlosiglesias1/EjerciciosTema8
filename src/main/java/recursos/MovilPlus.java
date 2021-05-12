@@ -15,6 +15,10 @@ public class MovilPlus extends MovilPrepago {
         super(nM, 0, cML, cMB, saldo);
     }
 
+    public MovilPlus (MovilPrepago movilPlus){
+        super(movilPlus);
+    }
+
     public void videollamada (int segundos){
         this.setSaldo(this.getSaldo()-Math.round(segundos*2*this.getCosteConsumoMB()));
         if (this.getSaldo()<0)

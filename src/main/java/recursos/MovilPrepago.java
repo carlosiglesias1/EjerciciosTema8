@@ -15,6 +15,14 @@ public MovilPrepago (long nM, float cEL, float cML, float cMB, float s) {
     saldo =s;
 }
 
+public MovilPrepago (MovilPrepago movilPrepago){
+      this.numeroMovil = movilPrepago.numeroMovil;
+      this.costeEstablecLlamada = movilPrepago.costeEstablecLlamada;
+      this.costeMinutoLlamada = movilPrepago.costeMinutoLlamada;
+      this.costeConsumoMB = movilPrepago.costeConsumoMB;
+      this.saldo = movilPrepago.getSaldo();
+}
+
 public float getCosteConsumoMB() {
     return costeConsumoMB;
 }
@@ -45,6 +53,10 @@ public boolean recargar (int importe) {
 }
 public float consultarSaldo () {
       return saldo;
+}
+
+public String toString (){
+      return String.format("Número de móvil: %d%nSaldo: %.2f", this.numeroMovil, this.saldo);
 }
 
 } //fin clase

@@ -1,5 +1,9 @@
 package ejercicios;
 
+import recursos.MovilPlus;
+import recursos.MovilPrepago;
+import recursos.MovilTarifaPlana;
+
 /**
  * 8.10. Copia la clase _MovilPrepago que te proporcionará el profesor con un
  * nombre nuevo, por ejemplo, MovilPrepago y realiza las siguientes operaciones:
@@ -22,5 +26,41 @@ package ejercicios;
  */
 
 public class Ejercicio10 {
+    static void printTelefonos (MovilPrepago [] tPrepagos){
+        for (int i = 0; i < tPrepagos.length; i++) {
+            System.out.println(tPrepagos[i].toString());
+        }
+    }
+    
+    static void llamadaTelefonos (MovilPrepago [] tPrepagos, int segundos){
+        for (int i = 0; i < tPrepagos.length; i++) {
+            tPrepagos[i].efectuarLlamada(segundos);
+        }
+    }
 
+    static void navegacionTelefonos (MovilPrepago [] tPrepagos, int mb){
+        for (int i = 0; i < tPrepagos.length; i++) {
+            tPrepagos[i].navegar(mb);
+        }
+    }
+    public static void main(String[] args) {
+        MovilPrepago [] telefonos = new MovilPrepago [3];
+        telefonos[0] = new MovilPlus(627156849, 0.15f, 0.10f, 10f);
+        telefonos[1] = new MovilPrepago(631582174, 0.15f, 0.15f, 0.10f, 10f);
+        telefonos[2] = new MovilTarifaPlana(654789631, 0.15f, 0.15f, 10f);
+
+        System.out.println("\tLlamada de 30 segundos: ");
+        llamadaTelefonos(telefonos, 30);
+        printTelefonos(telefonos);
+
+        System.out.println("\n\tNavegación de 5 megaBytes: ");
+        navegacionTelefonos(telefonos, 5);
+        printTelefonos(telefonos);
+
+        System.out.println("\n\tVideollamada de 50 segundos (sólo móbilPlus: ");
+        MovilPlus movilPlus = new MovilPlus(telefonos[0]);
+        movilPlus.videollamada(50);
+        telefonos[0] = movilPlus;
+        printTelefonos(telefonos);
+    }
 }

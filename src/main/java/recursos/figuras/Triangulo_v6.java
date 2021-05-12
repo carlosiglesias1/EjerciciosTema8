@@ -27,7 +27,7 @@ public class Triangulo_v6 extends Figura2D_v6{
     }
 
     public float area (){
-        return getAlto()*getAncho();
+        return (getAlto()*getAncho())/2;
     }
 
     public String verEstilo (){

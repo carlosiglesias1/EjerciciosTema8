@@ -1,5 +1,9 @@
 package ejercicios;
 
+import java.util.Scanner;
+
+import recursos.figuras.Triangulo_v7;
+
 /**
  * 8.7. Copia las clases anteriores como una nueva versión de las mismas (añade
  * sufijo _v7) y realiza los siguientes cambios: • Figura2D_v7 tendrá un nuevo
@@ -11,5 +15,13 @@ package ejercicios;
  */
 
 public class Ejercicio7 {
-
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner (System.in);
+        Triangulo_v7 tV7 = new Triangulo_v7(4.3f, 5.3f, "escaleno");
+        Triangulo_v7 tV72 = new Triangulo_v7(tV7);
+        System.out.println(tV72.verDim());
+        System.out.println(tV72.verEstilo());
+        System.out.println("area = " + tV72.area());
+        teclado.close();
+    }
 }

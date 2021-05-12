@@ -1,16 +1,9 @@
 package recursos.figuras;
 
-/**
- * • Añade a la clase Triangulo también un constructor sin parámetros, que
- * invoque al constructor sin parámetros de la clase base (aunque se hace por
- * defecto) y que ponga el estilo a null. • Añade otro constructor a la clase
- * Triangulo, con un solo parámetro, para aquellos que tienen igual alto que
- * ancho (en este caso el estilo será ‘igualBaseAltura’).
- */
-public class Triangulo_v5 extends Figura2D_v5 {
+public class Triangulo_v8 extends Figura2D_v8 {
     private String estilo;
 
-    public Triangulo_v5 (float alto, float ancho, String estilo){
+    public Triangulo_v8 (float alto, float ancho, String estilo){
         super(alto, ancho);
         switch (estilo){
             case "equilátero":
@@ -23,12 +16,17 @@ public class Triangulo_v5 extends Figura2D_v5 {
         }
     }
 
-    public Triangulo_v5 (float baseAltura){
+    public Triangulo_v8 (float baseAltura){
         super(baseAltura);
         this.estilo = "igualBaseAltura";
     }
 
-    public Triangulo_v5 (){
+    public Triangulo_v8 (Triangulo_v7 tV7){
+        super(tV7);
+        this.estilo = tV7.verEstilo();
+    }
+
+    public Triangulo_v8(){
         super();
         this.estilo = null;
     }

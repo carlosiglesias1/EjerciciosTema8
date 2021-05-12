@@ -3,8 +3,8 @@ package recursos.figuras;
 public class Triangulo_v8 extends Figura2D_v8 {
     private String estilo;
 
-    public Triangulo_v8 (float alto, float ancho, String estilo){
-        super(alto, ancho);
+    public Triangulo_v8 (float alto, float ancho, String nombre, String estilo){
+        super(alto, ancho, nombre);
         switch (estilo){
             case "equilátero":
             case "rectángulo":
@@ -16,12 +16,12 @@ public class Triangulo_v8 extends Figura2D_v8 {
         }
     }
 
-    public Triangulo_v8 (float baseAltura){
-        super(baseAltura);
+    public Triangulo_v8 (float baseAltura, String nombre){
+        super(baseAltura, nombre);
         this.estilo = "igualBaseAltura";
     }
 
-    public Triangulo_v8 (Triangulo_v7 tV7){
+    public Triangulo_v8 (Triangulo_v8 tV7){
         super(tV7);
         this.estilo = tV7.verEstilo();
     }

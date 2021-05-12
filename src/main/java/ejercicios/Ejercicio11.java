@@ -2,7 +2,6 @@ package ejercicios;
 
 import java.util.ArrayList;
 
-import recursos.MovilPlus;
 import recursos.MovilPlus_v2;
 
 /**

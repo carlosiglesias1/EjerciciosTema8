@@ -1,27 +1,13 @@
 package ejercicios;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import recursos.trabajadores.*;
+
 /**
- * 8.12. Crear una clase llamada Trabajador con los atributos privados: id,
- * nombre, fecha de nacimiento y salario base. • Dispondrá también de un
- * constructor que inicialice todos sus campos, getters, setters, método
- * toString () y equals (), sabiendo que dos trabajadores son iguales si tienen
- * el mismo ‘id’. • Crear una subclase de Trabajador llamada Asalariado que
- * añade un nuevo atributo llamado salarioFinal y otro llamado horasExtra. • El
- * constructor de esta nueva clase Asalariado incorpora la inicialización a cero
- * de las horas extra y el salario final igual al salario base. • La clase
- * Asalariado también incorpora setter y getter para las horas extra y un método
- * llamado calcularSalarioFinal() al que se le pasa a cuanto se paga la hora
- * extra en ese momento y calcula el salario final del empleado siendo su
- * salario base más el importe de las horas extras trabajadas. • Crear una
- * subclase de Trabajador llamada ConsultorExterno que añade un nuevo atributo
- * llamado horasTrabajadas y salarioFinal. • El constructor de esta nueva clase
- * ConsultorExterno incorpora la inicialización a cero de las horas trabajadas,
- * salario base y salario final. • La clase ConsultorExterno también incorpora
- * setter y getter para las horas trabajadas y un método llamado
- * calcularSalarioFinal() al que se le pasa a cuanto se paga la hora a los
- * consultores en ese momento y calcula el salario final del consultor solo en
- * función de las horas trabajadas (el salario base de estos trabajadores es
- * cero). • Haz un programa que cree un ArrayList de Asalariados y otro de
+ * 8.12.• Haz un programa que cree un ArrayList de Asalariados y otro de
  * ConsultoresExternos e introduzca “a mano” empleados en ambos ArrayList. -
  * Después modificar el contenido de ambos ArrayList añadiendo las horas
  * extra/horas trabajadas respectivamente. - Fijar el importe de hora extra a 20
@@ -33,5 +19,54 @@ package ejercicios;
  */
 
 public class Ejercicio12 {
+    public static void main(String[] args) {
+        ArrayList<ConsultorExterno> consultorList = new ArrayList<ConsultorExterno>();
+        ArrayList<Asalariado> asalariadoList = new ArrayList<Asalariado>();
+        float totalNomina = 0;
+        char opcion;
+        Scanner teclado = new Scanner(System.in);
+        String id;
+        String nombre;
+        LocalDate fecha;
+        do {
+            opcion = teclado.nextLine().charAt(0);
+            switch (opcion) {
+                case 'a':
+                    System.out.println("Introduce el código del  empleado:");
+                    id = teclado.nextLine();
+                    System.out.println("Introduce su nombre");
+                    nombre = teclado.nextLine();
+                    System.out.println("Introduce la fecha de nacimiento (aaaa-dd-mm)");
+                    fecha = LocalDate.parse(teclado.nextLine());
+                    System.out.println("Introduce el salario base");
+                    float sBase = Float.parseFloat(teclado.nextLine());
+                    asalariadoList.add(new Asalariado(id, nombre, fecha, sBase));
+                    asalariadoList.get(asalariadoList.size() - 1).calcularSalarioFinal(20);
+                    break;
+                case 'b':
+                    System.out.println("Introduce el código del  empleado:");
+                    id = teclado.nextLine();
+                    System.out.println("Introduce su nombre");
+                    nombre = teclado.nextLine();
+                    System.out.println("Introduce la fecha de nacimiento (aaaa-dd-mm)");
+                    fecha = LocalDate.parse(teclado.nextLine());
+                    consultorList.add(new ConsultorExterno(id, nombre, fecha));
+                    System.out.println("Introduce las horas trabajadas: ");
+                    consultorList.get(consultorList.size()-1).setHorasTrabajadas(Integer.parseInt(teclado.nextLine()));
+                    consultorList.get(consultorList.size()-1).calcularSalarioFinal(100);
+                    ;
+                    break;
+            }
+        } while (opcion != 's');
+        for (ConsultorExterno consultorExterno : consultorList) {
+            totalNomina += consultorExterno.getSalarioFinal();
+        }
 
+        for (Asalariado asalariado : asalariadoList) {
+            totalNomina += asalariado.getSalarioFinal();
+        }
+
+        System.out.println("El total de nominas de la empresa es de: " + totalNomina);
+        teclado.close();
+    }
 }
